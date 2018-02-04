@@ -1,0 +1,23 @@
+ javax.el.PropertyNotFoundException: Property 'name' not found on type java.lang.String
+
+javax.el.PropertyNotFoundException: Property 'name' not found on type java.lang.String
+
+javax.el.BeanELResolver$BeanProperties.get(BeanELResolver.java:193)
+
+javax.el.BeanELResolver.property(BeanELResolver.java:267)
+
+javax.el.BeanELResolver.getValue(BeanELResolver.java:60)
+
+javax.el.CompositeELResolver.getValue(CompositeELResolver.java:53)
+
+
+
+这个错误找能把人郁闷死，找出来能把人气死。
+
+在jstl标签属性中的""中间不能有空格，真实死都不知道怎么死的。
+
+原： <c:forEach items="${userlist} " var="user">
+
+把"${userlist} "中间的空格去掉，改为：
+
+<c:forEach items="${userlist}" var="user">就ok了。
