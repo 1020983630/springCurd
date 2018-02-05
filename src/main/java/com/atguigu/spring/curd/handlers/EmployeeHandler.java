@@ -3,6 +3,7 @@ package com.atguigu.spring.curd.handlers;
 import com.atguigu.spring.curd.dao.DepartmentDao;
 import com.atguigu.spring.curd.dao.EmployeeDao;
 import com.atguigu.spring.curd.entities.Employee;
+import org.apache.taglibs.standard.lang.jstl.EmptyOperator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.Map;
 
 @Controller
@@ -26,6 +28,7 @@ public class EmployeeHandler {
 //    public void initBinder(WebDataBinder binder){
 //        binder.setDisallowedFields("lastName");
 //    }
+
 
     @ModelAttribute
     public void getEmployee(@RequestParam(value = "id",required = false) Integer id,
