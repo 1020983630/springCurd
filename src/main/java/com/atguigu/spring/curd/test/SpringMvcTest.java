@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -26,6 +27,17 @@ public class SpringMvcTest {
 
     @Autowired
     private ResourceBundleMessageSource messageSource;
+
+    @RequestMapping("/testFileUpload")
+    public String testFileUpload(@RequestParam("desc") String desc,
+                                 @RequestParam("file") MultipartFile file) throws IOException {
+        System.out.println("desc: " + desc);
+        System.out.println("originalFilename: " + file.getOriginalFilename());
+        System.out.println("inputStream: " + file.getInputStream());
+
+        return "success";
+
+    }
 
     @RequestMapping("i18n")
     public String testi18n(Locale locale){

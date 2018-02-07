@@ -41,10 +41,20 @@
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
 
     <mvc:interceptors>
+        <bean class="com.atguigu.spring.curd.interceptors.FirstInterceptor"/>
+        <mvc:interceptor>
+            <mvc:mapping path="/emps"/>
+            <bean class="com.atguigu.spring.curd.interceptors.SecondInterceptor"/>
+        </mvc:interceptor>
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
     </mvc:interceptors>
 
     <!--<mvc:view-controller path="/i18n" view-name="i18n"/>-->
     <mvc:view-controller path="/i18n2" view-name="i18n2"/>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="1024000"/>
+    </bean>
 
 </beans>

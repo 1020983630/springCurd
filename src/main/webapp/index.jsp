@@ -24,9 +24,10 @@
 
     <a href="emps">List All Employees</a>
 
+    <br>
     <a id="testJson" href="testJson">Test Json</a>
 
-    <<br><br>
+    <br><br>
     <form action="testHttpMessageConverter" method="post" enctype="multipart/form-data">
         File: <input type="file" name="file"/>
         Desc: <input type="text" name="desc"/>
@@ -38,6 +39,13 @@
 
     <br>
     <a href="i18n">i18n page</a>
+
+    <br><br>
+    <form action="testFileUpload" method="post" enctype="multipart/form-data">
+        File: <input type="file" name="file"/>
+        Desc: <input type="text" name="desc"/>
+        <input type="submit" value="Submit"/>
+    </form>
 
 </body>
 </html>
