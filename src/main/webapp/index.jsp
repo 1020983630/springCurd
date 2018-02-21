@@ -47,5 +47,14 @@
         <input type="submit" value="Submit"/>
     </form>
 
+    <br>
+    <a href="testExceprionHandlerExceptionResoulver?i=0">Test ExceprionHandlerExceptionResoulver</a>
+
+    <br><br>
+    <a href="testResponseStatusExceptionResolver?i=10">Test ResponseStatusExceptionResolver</a>
+
+    <br><br>
+    <a href="testSimpleMappingExceptionResolver?i=10">Test SimpleMappingExceptionResolver</a>
+
 </body>
 </html>

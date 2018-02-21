@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -27,6 +28,46 @@ public class SpringMvcTest {
 
     @Autowired
     private ResourceBundleMessageSource messageSource;
+
+    @RequestMapping("testSimpleMappingExceptionResolver")
+    public String testSimpleMappingExceptionResolver(@RequestParam("i") int i){
+        String[] vals = new String[10];
+        System.out.println(vals[i]);
+        return "success";
+    }
+
+    @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "测试")
+    @RequestMapping("/testResponseStatusExceptionResolver")
+    public String testResponseStatusExceptionResolver(@RequestParam("i") int i){
+        if(i == 13){
+            throw new UserNameNotMatchPasswordException();
+        }else {
+            System.out.println("testResponseStatusExceptionResolver...");
+        }
+        return "success";
+    }
+
+//    @ExceptionHandler(RuntimeException.class)
+//    public ModelAndView handlerArithmeticException2(Exception ex){
+//        System.out.println("出异常了2：" + ex);
+//        ModelAndView mv = new ModelAndView("error");
+//        mv.addObject("exception",ex);
+//        return mv;
+//    }
+
+//    @ExceptionHandler(ArithmeticException.class)
+//    public ModelAndView handlerArithmeticException(Exception ex){
+//        System.out.println("出异常了：" + ex);
+//        ModelAndView mv = new ModelAndView("error");
+//        mv.addObject("exception",ex);
+//        return mv;
+//    }
+
+    @RequestMapping("/testExceprionHandlerExceptionResoulver")
+    public String testExceprionHandlerExceptionResoulver(@RequestParam("i") int i){
+        System.out.println("result" + 10/i);
+        return "success";
+    }
 
     @RequestMapping("/testFileUpload")
     public String testFileUpload(@RequestParam("desc") String desc,
